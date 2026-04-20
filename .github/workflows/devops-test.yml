@@ -18,3 +18,5 @@ jobs:
 
       - name: Simulate Deployment
         run: echo "Deployment to Staging Successful!"
+- name: Run Health Check Script
+        run: python health_check.py
