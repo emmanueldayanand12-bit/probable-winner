@@ -19,3 +19,11 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t health-check-app .
+- name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan
