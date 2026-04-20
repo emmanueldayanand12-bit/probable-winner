@@ -8,15 +8,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run a diagnostic test
-        run: |
-          echo "Starting DevOps Pipeline..."
-          echo "Checking system version:"
-          lsb_release -a
-          echo "Memory check:"
-          free -h
-
-      - name: Simulate Deployment
-        run: echo "Deployment to Staging Successful!"
-- name: Run Health Check Script
+      - name: Run Health Check
         run: python health_check.py
