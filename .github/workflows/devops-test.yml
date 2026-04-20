@@ -8,10 +8,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Linting Tools
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
         run: pip install flake8
 
-      - name: Lint with flake8
+      - name: Lint code
         run: flake8 health_check.py --count --select=E9,F63,F7,F82 --show-source --statistics
 
       - name: Run Health Check
