@@ -1,9 +1,13 @@
 name: DevOps CI Build
-on: [push]
+
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -11,7 +15,7 @@ jobs:
       - name: Run Health Check
         run: python health_check.py
 
-      - name: Build Docker
+      - name: Build Docker Image
         run: docker build -t health-check-app .
 
       - name: Setup Terraform
